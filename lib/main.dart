@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app2/current_weather.dart';
+import 'package:weather_app2/location.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+List<Location> locations =
+    Location(city: 'Pristina', country: 'Kosovo', lat: '42.6629', lon: '21.1655') as List<Location>;
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Weather',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CurrentWeatherPage(),
+      home: CurrentWeatherPage(locations),
     );
   }
 }
